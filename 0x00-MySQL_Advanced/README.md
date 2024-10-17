@@ -12,7 +12,7 @@ This repository contains a series of SQL scripts designed to demonstrate various
 | 1           | Simple SELECT Queries                                                                          | [1-select.sql](1-select.sql)                |
 | 2           | Filtering Results                                                                               | [2-filter.sql](2-filter.sql)                |
 | 3           | Aggregate Functions                                                                             | [3-aggregate.sql](3-aggregate.sql)          |
-| 4           | Grouping Data                                                                                  | [4-group.sql](4-group.sql)                  |
+| 4           | Grouping Data                                                                                  | [4-group.sql](./4-group.sql)                  |
 | 5           | Joining Tables                                                                                 | [5-join.sql](5-join.sql)                    |
 | 6           | Subqueries                                                                                     | [6-subquery.sql](6-subquery.sql)            |
 | 7           | Creating Views                                                                                 | [7-view.sql](7-view.sql)                    |
