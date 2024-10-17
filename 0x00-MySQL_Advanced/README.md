@@ -8,20 +8,21 @@ This repository contains a series of SQL scripts designed to demonstrate various
 
 | Task Number | Description                                                                                     | Source Code Link                             |
 |-------------|-------------------------------------------------------------------------------------------------|----------------------------------------------|
-| 0           | Initialize Database                                                                           | [0-init.sql](0-init.sql)                   |
-| 1           | Simple SELECT Queries                                                                          | [1-select.sql](1-select.sql)                |
-| 2           | Filtering Results                                                                               | [2-filter.sql](2-filter.sql)                |
-| 3           | Aggregate Functions                                                                             | [3-aggregate.sql](3-aggregate.sql)          |
-| 4           | Grouping Data                                                                                  | [4-group.sql](./4-group.sql)                  |
-| 5           | Joining Tables                                                                                 | [5-join.sql](5-join.sql)                    |
-| 6           | Subqueries                                                                                     | [6-subquery.sql](6-subquery.sql)            |
-| 7           | Creating Views                                                                                 | [7-view.sql](7-view.sql)                    |
-| 8           | Triggers                                                                                       | [8-trigger.sql](8-trigger.sql)              |
-| 9           | Indexing                                                                                       | [9-index_name_score.sql](9-index_name_score.sql) |
-| 10          | User-Defined Functions                                                                         | [10-div.sql](10-div.sql)                    |
-| 11          | Views with Conditions                                                                          | [11-need_meeting.sql](11-need_meeting.sql)  |
-| 12          | Stored Procedures for Weighted Scores                                                           | [100-average_weighted_score.sql](100-average_weighted_score.sql) |
-| 13          | Compute Average Weighted Scores for All Users                                                 | [101-average_weighted_score.sql](101-average_weighted_score.sql) |
+| 0           | Create a unique users table                                                                    | [0-uniq_users.sql](./0-uniq_users.sql)    |
+| 1           | Create a users table with country enumeration                                                  | [1-country_users.sql](./1-country_users.sql)|
+| 2           | Rank country origins of bands by number of fans                                               | [2-fans.sql](./2-fans.sql)                  |
+| 3           | List Glam rock bands ranked by longevity                                                      | [3-glam_rock.sql](./3-glam_rock.sql)       |
+| 4           | Create a trigger to decrease item quantity after order                                         | [4-store.sql](./4-store.sql)                |
+| 5           | Create a trigger to reset valid_email when email changes                                       | [5-valid_email.sql](./5-valid_email.sql)    |
+| 6           | Add bonus                                                                                      | [6-bonus.sql](./6-bonus.sql)                |
+| 7           | Calculate average score                                                                         | [7-average_score.sql](./7-average_score.sql)|
+| 8           | Optimize simple search                                                                          | [8-index_my_names.sql](./8-index_my_names.sql)|
+| 9           | Optimize search and score                                                                       | [9-index_name_score.sql](./9-index_name_score.sql)|
+| 10          | Safe divide                                                                                    | [10-div.sql](./10-div.sql)                  |
+| 11          | No table for a meeting                                                                          | [11-need_meeting.sql](./11-need_meeting.sql)|
+| 12          | Calculate average weighted score                                                                | [100-average_weighted_score.sql](./100-average_weighted_score.sql)|
+| 13          | Calculate average weighted score for all!                                                      | [101-average_weighted_score.sql](./101-average_weighted_score.sql)|
+
 
 ## Environment
 - Ubuntu 18.04 LTS
