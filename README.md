@@ -34,8 +34,16 @@ This repository contains a series of SQL scripts designed to demonstrate various
 - All your files should start by a comment describing the task
 - All SQL keywords should be in uppercase (SELECT, WHERE…)
 - The length of your files will be tested using wc
+- Comments for your SQL file:
+```sql
+$ cat my_script.sql
+-- 3 first students in the Batch ID=3
+-- because Batch 3 is the best!
+SELECT id, name FROM students WHERE batch_id = 3 ORDER BY created_at DESC LIMIT 3;
+$
+```
 
-### Learning Objectives
+## Learning Objectives
 By the end of this project, you should be able to:
 - How to create tables with constraints
 - How to optimize queries by adding indexes
