@@ -6,7 +6,7 @@ from pymongo import MongoClient
 
 def list_databases():
     """Lists all databases in the MongoDB server"""
-    client = MongoClient()  # Create a MongoClient instance to connect to the server
+    client = MongoClient()
     databases = client.list_database_names()
     for db in databases:
         print(db)
