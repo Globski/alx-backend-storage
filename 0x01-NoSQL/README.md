@@ -8,22 +8,22 @@ This project focuses on the principles and applications of NoSQL databases, with
 
 | Task Number | Description | Source Code |
 |-------------|-------------|-------------|
-| 0           | List all databases | [0-list_databases.py](scripts/0-list_databases.py) |
-| 1           | Create a database | [1-create_database.py](scripts/1-create_database.py) |
-| 2           | Insert document | [2-insert_document.py](scripts/2-insert_document.py) |
-| 3           | All documents | [3-list_all_documents.py](scripts/3-list_all_documents.py) |
-| 4           | All matches | [4-list_all_matches.py](scripts/4-list_all_matches.py) |
-| 5           | Count | [5-count.py](scripts/5-count.py) |
-| 6           | Update | [6-update.py](scripts/6-update.py) |
-| 7           | Delete by match | [7-delete_by_match.py](scripts/7-delete_by_match.py) |
-| 8           | List all documents in Python | [8-list_all_documents.py](scripts/8-list_all_documents.py) |
-| 9           | Insert a document in Python | [9-insert_document.py](scripts/9-insert_document.py) |
-| 10          | Change school topics | [10-change_school_topics.py](scripts/10-change_school_topics.py) |
-| 11          | Where can I learn Python? | [11-schools_by_topic.py](scripts/11-schools_by_topic.py) |
-| 12          | Log stats | [12-log_stats.py](scripts/12-log_stats.py) |
-| 13          | Regex filter | [13-regex_filter.py](scripts/13-regex_filter.py) |
-| 14          | Top students | [14-top_students.py](scripts/14-top_students.py) |
-| 15          | Log stats - new version | [15-log_stats_new.py](scripts/15-log_stats_new.py) |
+| 0           | List all databases | [0-list_databases](./0-list_databases) |
+| 1           | Create a database | [1-create_database](./1-create_database) |
+| 2           | Insert document | [2-insert_document](./2-insert_document) |
+| 3           | All documents | [3-list_all_documents](./3-list_all_documents) |
+| 4           | All matches | [4-list_all_matches](./4-list_all_matches) |
+| 5           | Count | [5-count](./5-count.py) |
+| 6           | Update | [6-update](./6-update.py) |
+| 7           | Delete by match | [7-delete_by_match](./7-delete_by_match) |
+| 8           | List all documents in Python | [8-list_all_documents](./8-list_all_documents) |
+| 9           | Insert a document in Python | [9-insert_document](./9-insert_document) |
+| 10          | Change school topics | [10-change_school_topics](./10-change_school_topics) |
+| 11          | Where can I learn Python? | [11-schools_by_topic](./11-schools_by_topic) |
+| 12          | Log stats | [12-log_stats](./12-log_stats) |
+| 13          | Regex filter | [100-find](./1100-find) |
+| 14          | Top students | [101-students.py](./101-students.py) |
+| 15          | Log stats - new version | [102-log_stats.py](./102-log_stats.py) |
 
 ## Environment
 
