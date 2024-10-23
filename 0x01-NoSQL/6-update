@@ -2,6 +2,6 @@
 // It updates only those documents where name="Holberton school" in the 'school' collection.
 db.school.update(
     {name: "Holberton school"},
-    {$set: {address: "972 Mission street"}}
+    {$set: {address: "972 Mission street"}},
     {multi: true}
 );
