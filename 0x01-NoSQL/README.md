@@ -11,14 +11,14 @@ This project focuses on the principles and applications of NoSQL databases, with
 | 0           | List all databases | [0-list_databases](./0-list_databases) |
 | 1           | Create a database | [1-create_database](./1-create_database) |
 | 2           | Insert document | [2-insert](./2-insert) |
-| 3           | All documents | [3-list_all](./3-list_all) |
-| 4           | All matches | [4-list_all_matches](./4-list_all_matches) |
+| 3           | All documents | [3-all](./3-all) |
+| 4           | All matches | [4-matches](./4-matches) |
 | 5           | Count | [5-count](./5-count) |
 | 6           | Update | [6-update](./6-update) |
-| 7           | Delete by match | [7-delete_by_match](./7-delete_by_match) |
-| 8           | List all documents in Python | [8-list_all.py](./8-list_all.py) |
-| 9           | Insert a document in Python | [9-insert.py](./9-insert.py) |
-| 10          | Change school topics | [10-change_school_topics](./10-change_school_topics) |
+| 7           | Delete by match | [7-delete](./7-delete) |
+| 8           | List all documents in Python | [8-all.py](./8-all.py) |
+| 9           | Insert a document in Python | [9-insert_school.py](./9-insert_school.py) |
+| 10          | Change school topics | [10-update_topics](./10-update_topics) |
 | 11          | Where can I learn Python? | [11-schools_by_topic](./11-schools_by_topic) |
 | 12          | Log stats | [12-log_stats](./12-log_stats) |
 | 13          | Regex filter | [100-find](./1100-find) |
