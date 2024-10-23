@@ -1,0 +1,3 @@
+// List all documents in the 'school' collection from the 'my_db' database.
+// Query the 'school' collection and print all documents.
+db.school.find().forEach(doc => printjson(doc));
