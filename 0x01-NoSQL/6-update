@@ -1,0 +1,6 @@
+// Add a new attribute 'address' to documents in the 'school' collection.
+// It updates only those documents where name="Holberton school" in the 'school' collection.
+db.school.update(
+    {name: "Holberton school"},
+    { $set: {address: "972 Mission street"} }
+);
