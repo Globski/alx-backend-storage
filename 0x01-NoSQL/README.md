@@ -10,8 +10,8 @@ This project focuses on the principles and applications of NoSQL databases, with
 |-------------|-------------|-------------|
 | 0           | List all databases | [0-list_databases](./0-list_databases) |
 | 1           | Create a database | [1-create_database](./1-create_database) |
-| 2           | Insert document | [2-insert_document](./2-insert_document) |
-| 3           | All documents | [3-list_all_documents](./3-list_all_documents) |
+| 2           | Insert document | [2-insert](./2-insert) |
+| 3           | All documents | [3-list_all](./3-list_all) |
 | 4           | All matches | [4-list_all_matches](./4-list_all_matches) |
 | 5           | Count | [5-count](./5-count) |
 | 6           | Update | [6-update](./6-update) |
