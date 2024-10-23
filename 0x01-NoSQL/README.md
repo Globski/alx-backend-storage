@@ -17,7 +17,7 @@ This project focuses on the principles and applications of NoSQL databases, with
 | 6           | Update | [6-update](./6-update) |
 | 7           | Delete by match | [7-delete_by_match](./7-delete_by_match) |
 | 8           | List all documents in Python | [8-list_all_documents.py](./8-list_all_documents.py) |
-| 9           | Insert a document in Python | [9-insert_document](./9-insert_document) |
+| 9           | Insert a document in Python | [9-insert_document.py](./9-insert_document.py) |
 | 10          | Change school topics | [10-change_school_topics](./10-change_school_topics) |
 | 11          | Where can I learn Python? | [11-schools_by_topic](./11-schools_by_topic) |
 | 12          | Log stats | [12-log_stats](./12-log_stats) |
