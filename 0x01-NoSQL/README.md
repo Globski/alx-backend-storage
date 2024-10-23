@@ -13,8 +13,8 @@ This project focuses on the principles and applications of NoSQL databases, with
 | 2           | Insert document | [2-insert_document](./2-insert_document) |
 | 3           | All documents | [3-list_all_documents](./3-list_all_documents) |
 | 4           | All matches | [4-list_all_matches](./4-list_all_matches) |
-| 5           | Count | [5-count](./5-count.py) |
-| 6           | Update | [6-update](./6-update.py) |
+| 5           | Count | [5-count](./5-count) |
+| 6           | Update | [6-update](./6-update) |
 | 7           | Delete by match | [7-delete_by_match](./7-delete_by_match) |
 | 8           | List all documents in Python | [8-list_all_documents.py](./8-list_all_documents.py) |
 | 9           | Insert a document in Python | [9-insert_document](./9-insert_document) |
