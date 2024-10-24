@@ -12,12 +12,10 @@ def print_nginx_log_stats(nginx_collection):
     http_methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     print("Methods:")
     for method in http_methods:
-        method_count = len(list(nginx_collection.find({"method": method})))
+        method_count = nginx_collection.count_documents({"method": method})
         print(f"\tmethod {method}: {method_count}")
 
-    status_requests_count = len(list(
-        nginx_collection.find({"method": "GET", "path": "/status"})
-    ))
+    status_requests_count = nginx_collection.count_documents({"method": "GET", "path": "/status"})
     print(f"{status_requests_count} status check")
 
 
