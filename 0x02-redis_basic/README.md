@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates how to use Redis for caching and data retrieval in Python. It includes several tasks that cover storing and retrieving data: Learn how to store data in Redis and retrieve it when needed. Reading from Redis Understand how to read existing data from the Redis database. Incrementing values. Discover how to increment numeric values stored in Redis. Implementing decorators. Explore how to create decorators that track function calls and maintain a history of interactions.
+This project demonstrates using Redis for caching and data retrieval in Python. It includes several tasks that cover storing and retrieving data. Learn how to store data in Redis and retrieve it when needed. Reading from Redis Understand how to read existing data from the Redis database. Incrementing values. Discover how to increment numeric values stored in Redis. Implementing decorators. Explore how to create decorators that track function calls and maintain a history of interactions.
 
 ## Project Structure
 
