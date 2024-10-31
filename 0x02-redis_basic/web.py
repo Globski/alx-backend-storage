@@ -13,7 +13,7 @@ from functools import wraps
 
 cache = redis.Redis()
 
-def cache_page(expiration: int = 10) -> Callable:
+def cache_page(expiration=10):
     """
     A decorator to cache the results of a function call with a specified expiration time.
 
@@ -23,9 +23,9 @@ def cache_page(expiration: int = 10) -> Callable:
     Returns:
         function: The decorated function.
     """
-    def decorator(func: Callable) -> Callable:
+    def decorator(func):
         @wraps(func)
-        def wrapper(url: str) -> str:
+        def wrapper(url):
             count_key = f"count:{url}"
             cache.incr(count_key)
             
@@ -33,14 +33,9 @@ def cache_page(expiration: int = 10) -> Callable:
             if cached_result:
                 return cached_result.decode('utf-8')
             
-            try:
-                result = func(url)
-                cache.setex(f'result:{url}', expiration, result)
-                return result
-            except requests.RequestException as e:
-                print(f"Error fetching {url}: {e}")
-                return ""
-
+            result = func(url)
+            cache.setex(f'result:{url}', expiration, result)
+            return result
         return wrapper
     return decorator
 
@@ -56,5 +51,4 @@ def get_page(url: str) -> str:
         str: The HTML content of the URL.
     """
     response = requests.get(url)
-    response.raise_for_status()
-    return response.text
+    return response.text here is my code
