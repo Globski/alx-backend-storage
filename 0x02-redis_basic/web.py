@@ -10,6 +10,7 @@ It also tracks how many times a particular URL was accessed.
 import redis
 import requests
 from functools import wraps
+from typing import Callable
 
 cache = redis.Redis()
 
