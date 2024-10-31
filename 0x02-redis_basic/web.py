@@ -35,12 +35,12 @@ class WebCache:
         Returns:
             str: The HTML content of the page.
         """
-        cached_page = self._redis.get(url)
+        cached_page = self._redis.get(f'result:{url}')
         if cached_page:
             return cached_page.decode('utf-8')
 
         response = requests.get(url)
         content = response.text
 
-        self._redis.setex(url, 10, content)
+        self._redis.setex(f'result:{url}', 10, content)
         return content
