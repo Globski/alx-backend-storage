@@ -77,4 +77,6 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
-Cache.store = count_calls(Cache.store)
+    @count_calls
+    def store(self, data: Union[str, bytes, int, float]) -> str:
+        return super().store(data)
