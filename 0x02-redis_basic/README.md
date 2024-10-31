@@ -157,6 +157,8 @@ for value, fn in TEST_CASES.items():
 - Remember that the first argument of the wrapped function will be `self`, which lets you access the Redis instance.
 - Decorate `Cache.store` with `count_calls`.
 
+- Protip: when defining a decorator it is useful to use functool.wraps to conserve the original function’s name, docstring, etc. Make sure you use it as described [here](https://docs.python.org/3.7/library/functools.html#functools.wraps).
+
 - **Decorator**: `count_calls`
 - **Methods**:
   - `store(data)`: Decorated with `count_calls` to track how many times it has been called.
