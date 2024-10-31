@@ -34,21 +34,28 @@ class Cache:
         
         return key
 
+    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float, None]:
+        """
+        Retrieve data from Redis and convert using fn if provided.
 
-def get(self, key: str, fn: Optional[Callable] = None) -> Any:
-    """
-    Retrieve data from Redis and convert it using the provided function.
-    
-    Args:
-        key (str): The key to retrieve data from.
-        fn (Optional[Callable]): Function to convert the retrieved data.
+        Args:
+            key (str): The key for the stored data.
+            fn: Optional callable to convert the retrieved data.
 
-    Returns:
-        Any: The data retrieved from Redis, converted if fn is provided.
-    """
-    data = self._redis.get(key)
-    
-    if data and fn:
-        return fn(data)
-    
-    return data
+        Returns:
+            The data in its original format, or None if the key doesn't exist.
+        """
+        value = self._redis.get(key)
+        if value is None:
+            return None
+        if fn:
+            return fn(value)
+        return value
+
+    def get_str(self, key: str) -> str:
+        """Get a string value from Redis."""
+        return self.get(key, lambda d: d.decode('utf-8'))
+
+    def get_int(self, key: str) -> int:
+        """Get an integer value from Redis."""
+        return self.get(key, int)
