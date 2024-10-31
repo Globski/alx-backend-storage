@@ -5,6 +5,7 @@ Module for Redis caching.
 import redis
 import uuid
 from typing import Union, Callable, Optional
+from functools import wraps
 
 class Cache:
     """
@@ -59,3 +60,16 @@ class Cache:
     def get_int(self, key: str) -> int:
         """Get an integer value from Redis."""
         return self.get(key, int)
+
+def count_calls(method: Callable) -> Callable:
+        """Decorator to count the number of times a method is called."""
+        @wraps(method)
+        def wrapper(self, *args, **kwargs):
+            count_key = f"{method.__qualname__}"
+            self._redis.incr(count_key)
+            return method(self, *args, **kwargs)
+        return wrapper
+
+    @count_calls
+    def store(self, data: Union[str, bytes, int, float]) -> str:
+        return super().store(data)
