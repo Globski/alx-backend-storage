@@ -33,3 +33,22 @@ class Cache:
         self._redis.set(key, data)
         
         return key
+
+
+def get(self, key: str, fn: Optional[Callable] = None) -> Any:
+    """
+    Retrieve data from Redis and convert it using the provided function.
+    
+    Args:
+        key (str): The key to retrieve data from.
+        fn (Optional[Callable]): Function to convert the retrieved data.
+
+    Returns:
+        Any: The data retrieved from Redis, converted if fn is provided.
+    """
+    data = self._redis.get(key)
+    
+    if data and fn:
+        return fn(data)
+    
+    return data
