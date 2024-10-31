@@ -1,54 +1,30 @@
 #!/usr/bin/env python3
-"""
-Web caching module using Redis.
-"""
 import redis
 import requests
+import time
 from functools import wraps
-from typing import Callable
 
-redis_store = redis.Redis()
+cache = redis.Redis(host='localhost', port=6379, db=0)
 
-def data_cacher(method: Callable) -> Callable:
-    """Decorator to cache output of fetched data and count requests.
-    
-    Args:
-        method (Callable): The function to cache.
-    
-    Returns:
-        Callable: The wrapped function.
-    """
-    @wraps(method)
-    def invoker(url: str) -> str:
-        """Wrap the function to count requests and cache the result.
+def cache_page(expiration=10):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(url):
+            cached_result = cache.get(url)
+            if cached_result:
+                return cached_result.decode('utf-8')
+            
+            result = func(url)
+            
+            cache.setex(url, expiration, result)
+            return result
+        return wrapper
+    return decorator
 
-        Args:
-            url (str): The URL to fetch.
-
-        Returns:
-            str: The HTML content of the page.
-        """
-        redis_store.incr(f'count:{url}')
-        
-        cached_result = redis_store.get(f'result:{url}')
-        if cached_result:
-            return cached_result.decode('utf-8')
-        
-        result = method(url)
-        
-        redis_store.setex(f'result:{url}', 10, result)
-        
-        return result
-
-@data_cacher
+@cache_page(expiration=10)
 def get_page(url: str) -> str:
-    """Fetch and return the HTML content of a URL.
-
-    Args:
-        url (str): The URL to fetch.
-
-    Returns:
-        str: The HTML content of the page.
-    """
+    count_key = f"count:{url}"
+    cache.incr(count_key)
+    
     response = requests.get(url)
     return response.text
