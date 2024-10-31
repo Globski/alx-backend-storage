@@ -81,3 +81,27 @@ def count_calls(method: Callable) -> Callable:
     def store(self, data: Union[str, bytes, int, float]) -> str:
         return super().store(data)
 Cache.store = count_calls(Cache.store)
+
+def call_history(method: Callable) -> Callable:
+    """
+    Decorator to record input/output history for a method.
+
+    Args:
+        method (Callable): The method to decorate.
+
+    Returns:
+        Callable: The decorated method with history tracking.
+    """
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        self._redis.rpush(f"{method.__qualname__}:inputs", str(args))
+        output = method(self, *args, **kwargs)
+        self._redis.rpush(f"{method.__qualname__}:outputs", output)
+        return output
+    return wrapper
+
+    @count_calls
+    @call_history
+    def store(self, data: Union[str, bytes, int, float]) -> str:
+        return super().store(data)
+Cache.store = call_history(Cache.store)
