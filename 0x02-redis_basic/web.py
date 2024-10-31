@@ -4,7 +4,7 @@ import requests
 import time
 from functools import wraps
 
-cache = redis.Redis(host='localhost', port=6379, db=0)
+cache = redis.Redis()
 
 def cache_page(expiration=10):
     def decorator(func):
