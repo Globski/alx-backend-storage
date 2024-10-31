@@ -51,4 +51,4 @@ def get_page(url: str) -> str:
         str: The HTML content of the URL.
     """
     response = requests.get(url)
-    return response.text here is my code
+    return response.text
