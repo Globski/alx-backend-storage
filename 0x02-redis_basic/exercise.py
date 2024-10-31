@@ -119,4 +119,4 @@ def replay(fn: Callable) -> None:
     
     print(f"{fn.__qualname__} was called {count} times:")
     for inp, outp in zip(inputs, outputs):
-        print(f"{fn.__qualname__}(*{inp.decode()}) -> {outp.decode()}")
+        print(f"{fn.__qualname__}(*{inp.decode('utf-8')}) -> {outp.decode('utf-8')}")
