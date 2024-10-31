@@ -76,7 +76,7 @@ sudo service redis-server start
 
 ## Additional Notes
 
-- Redis (REmote DIctionary Server) is an open-source, in-memory data structure store. It is commonly used as a database, cache, and message broker to cache frequently accessed data to reduce latency and database load. commonly used to store user session data in web applications.
+- Redis (REmote DIctionary Server) is an open-source, in-memory data structure store. It is commonly used as a database, cache, and message broker to cache frequently accessed data to reduce latency and database load. commonly used to store user session data in web applications. Redis is classified as a NoSQL database.
 
 - In-Memory Storage: Redis stores data in memory, allowing fast read and write operations.
 - You can configure it to periodically save data to disk or use an append-only file (AOF) to log every write operation.
