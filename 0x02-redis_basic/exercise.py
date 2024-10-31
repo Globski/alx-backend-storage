@@ -62,14 +62,19 @@ class Cache:
         return self.get(key, int)
 
 def count_calls(method: Callable) -> Callable:
-        """Decorator to count the number of times a method is called."""
-        @wraps(method)
-        def wrapper(self, *args, **kwargs):
-            count_key = f"{method.__qualname__}"
-            self._redis.incr(count_key)
-            return method(self, *args, **kwargs)
-        return wrapper
+    """
+    Decorator to count the number of times a method is called.
+    
+    Args:
+        method (Callable): The method to decorate.
 
-    @count_calls
-    def store(self, data: Union[str, bytes, int, float]) -> str:
-        return super().store(data)
+    Returns:
+        Callable: The decorated method with call counting.
+    """
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        self._redis.incr(method.__qualname__)
+        return method(self, *args, **kwargs)
+    return wrapper
+
+Cache.store = count_calls(Cache.store)
