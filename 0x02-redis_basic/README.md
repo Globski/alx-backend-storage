@@ -41,20 +41,6 @@ This project demonstrates using Redis for caching and data retrieval in Python. 
 - Gain experience with decorators in Python.
 - Familiarize with managing data types and conversions in Redis.
 
-## Prototype Table
-
-| Function Name    | Prototype                                 |
-|-------------------|------------------------------------------|
-| `store`           | `def store(self, data: Union[str, bytes, int, float]) -> str:` |
-| `get`             | `def get(self, key: str, fn: Optional[Callable] = None) -> Any:` |
-| `get_str`        | `def get_str(self, key: str) -> str:` |
-| `get_int`        | `def get_int(self, key: str) -> int:` |
-| `count_calls`    | `def count_calls(method: Callable) -> Callable:` |
-| `call_history`    | `def call_history(method: Callable) -> Callable:` |
-| `replay`         | `def replay(fn: Callable) -> None:` |
-| `get_page`       | `def get_page(url: str) -> str:` |
-
-
 ## How to Use
 
 1. Clone the repository.
@@ -89,6 +75,13 @@ sudo service redis-server start
 - Make sure to run each functionality with various input values to verify that the Redis operations work as expected.
 
 ## Additional Notes
+
+- Redis (REmote DIctionary Server) is an open-source, in-memory data structure store. It is commonly used as a database, cache, and message broker to cache frequently accessed data to reduce latency and database load. commonly used to store user session data in web applications.
+
+- In-Memory Storage: Redis stores data in memory, allowing fast read and write operations.
+- You can configure it to periodically save data to disk or use an append-only file (AOF) to log every write operation.
+- Redis supports master-slave replication, allowing you to create copies of your data across multiple servers for redundancy.
+
 - Basic Operations: Understand how to perform fundamental tasks with Redis.
 - Caching Mechanisms: Learn how to implement caching for improved performance.
 - Python Decorators: Gain experience in using decorators to enhance functionality.
