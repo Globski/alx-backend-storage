@@ -26,6 +26,9 @@ def cache_page(expiration=10):
     def decorator(func):
         @wraps(func)
         def wrapper(url):
+            count_key = f"count:{url}"
+            cache.incr(count_key)
+            
             cached_result = cache.get(f'result:{url}')
             if cached_result:
                 return cached_result.decode('utf-8')
@@ -47,8 +50,5 @@ def get_page(url: str) -> str:
     Returns:
         str: The HTML content of the URL.
     """
-    count_key = f"count:{url}"
-    cache.incr(count_key)
-    
     response = requests.get(url)
     return response.text
