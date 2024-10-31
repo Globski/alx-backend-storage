@@ -7,14 +7,13 @@ It fetches HTML content from a given URL and caches the result for 10 seconds.
 It also tracks how many times a particular URL was accessed.
 """
 
+import redis
 import requests
-from redis import Redis
 from functools import wraps
-from typing import Callable
 
-cache = Redis()
+cache = redis.Redis()
 
-def cache_page(expiration: int = 10) -> callable:
+def cache_page(expiration: int = 10) -> Callable:
     """
     A decorator to cache the results of a function call with a specified expiration time.
 
@@ -24,19 +23,24 @@ def cache_page(expiration: int = 10) -> callable:
     Returns:
         function: The decorated function.
     """
-    def decorator(func: callable) -> callable:
+    def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(url: str) -> str:
             count_key = f"count:{url}"
             cache.incr(count_key)
-
+            
             cached_result = cache.get(f'result:{url}')
             if cached_result:
                 return cached_result.decode('utf-8')
+            
+            try:
+                result = func(url)
+                cache.setex(f'result:{url}', expiration, result)
+                return result
+            except requests.RequestException as e:
+                print(f"Error fetching {url}: {e}")
+                return ""
 
-            result = func(url)
-            cache.setex(f'result:{url}', expiration, result)
-            return result
         return wrapper
     return decorator
 
@@ -51,10 +55,6 @@ def get_page(url: str) -> str:
     Returns:
         str: The HTML content of the URL.
     """
-    if redis_client.exists(url):
-        return redis_client.get(url).decode('utf-8')
-    
     response = requests.get(url)
-    
-    redis_client.setex(url, 10, response.text)
+    response.raise_for_status()
     return response.text
