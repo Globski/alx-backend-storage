@@ -31,7 +31,6 @@ def cache_page(expiration=10):
                 return cached_result.decode('utf-8')
             
             result = func(url)
-            
             cache.setex(url, expiration, result)
             return result
         return wrapper
@@ -49,7 +48,7 @@ def get_page(url: str) -> str:
         str: The HTML content of the URL.
     """
     count_key = f"count:{url}"
-    cache.incr(count_key)
     
+    cache.incr(count_key)
     response = requests.get(url)
     return response.text
