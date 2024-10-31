@@ -12,7 +12,7 @@ from redis import Redis
 from functools import wraps
 from typing import Callable
 
-cache = redis.Redis()
+cache = Redis()
 
 def cache_page(expiration: int = 10) -> callable:
     """
@@ -51,6 +51,10 @@ def get_page(url: str) -> str:
     Returns:
         str: The HTML content of the URL.
     """
+    if redis_client.exists(url):
+        return redis_client.get(url).decode('utf-8')
+    
     response = requests.get(url)
-    response.raise_for_status()
+    
+    redis_client.setex(url, 10, response.text)
     return response.text
