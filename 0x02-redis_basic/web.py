@@ -7,8 +7,8 @@ It fetches HTML content from a given URL and caches the result for 10 seconds.
 It also tracks how many times a particular URL was accessed.
 """
 
-import redis
 import requests
+from redis import Redis
 from functools import wraps
 from typing import Callable
 
