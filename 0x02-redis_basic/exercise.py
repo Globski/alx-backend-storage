@@ -105,3 +105,18 @@ def call_history(method: Callable) -> Callable:
     def store(self, data: Union[str, bytes, int, float]) -> str:
         return super().store(data)
 Cache.store = call_history(Cache.store)
+
+def replay(fn: Callable) -> None:
+    """
+    Display the history of calls for a method.
+
+    Args:
+        fn (Callable): The method to replay.
+    """
+    inputs = self._redis.lrange(f"{fn.__qualname__}:inputs", 0, -1)
+    outputs = self._redis.lrange(f"{fn.__qualname__}:outputs", 0, -1)
+    count = len(inputs)
+    
+    print(f"{fn.__qualname__} was called {count} times:")
+    for inp, outp in zip(inputs, outputs):
+        print(f"{fn.__qualname__}(*{inp.decode()}) -> {outp.decode()}")
